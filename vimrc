@@ -56,9 +56,6 @@ set number
 " Show current position
 set ruler
 
-" Height of the command bar
-set cmdheight=1
-
 " Show first match when typing a search
 set incsearch
 
@@ -182,8 +179,12 @@ set viminfo^=%
 " Always show the status line
 set laststatus=2
 
+" Height of the command bar
+set cmdheight=1
+
 " Format the status line
-set statusline=FILE:\ %f%m%r%h%w\ \ \ \ TYPE:\ %y\ %=%-20.(%l,%c%V%)\ %P
+"set statusline=FILE:\ %f%m%r%h%w\ \ \ \ TYPE:\ %y\ %=%-20.(%l,%c%V%)\ %P
+" Changed by plugin --> lightline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Editing
@@ -196,8 +197,23 @@ map <C-L> :nohlsearch<CR>
 nmap <leader>s :source ~/.vimrc<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" --> Various
+" --> Misc commands
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " Toggle spell checking using leader+ss
 map <leader>ss :setlocal spell!<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" --> Plugins configuration
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+let g:lightline = {
+        \'component' : {
+        \   'readonly': '%{&readonly?"[RO]":""}',
+        \ },
+        \ 'separator': { 'left': '->', 'right': '->' },
+        \ 'subseparator': { 'left': '|', 'right': '|' }
+    \}
+
+" Do not show vim info, because it is provided by the status line
+set noshowmode
