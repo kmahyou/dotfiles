@@ -87,7 +87,7 @@ set foldcolumn=3
 set colorcolumn=79
 
 " Show at least one line above/bellow the cursor
-set scrolloff
+set scrolloff=2
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Fonts, Colors and Themes
@@ -98,7 +98,7 @@ syntax on
 
 " Set a theme
 try
-    colorscheme subzero
+    colorscheme landscape
 catch
 endtry
 
