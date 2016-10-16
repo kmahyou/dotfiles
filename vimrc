@@ -48,7 +48,7 @@ set so=2
 set wildmenu
 
 " Ignore compiled files in the wild menu
-set wildignore=*.o,*~,*.pyc,.git\*,.hg\*,.svn\*
+set wildignore=*.o,*~,*.pyc,.git\*,.hg\*,.svn\*,*.log,*.cache
 
 " Show line numbers
 set number
