@@ -180,7 +180,7 @@ set viminfo^=%
 set laststatus=2
 
 " Height of the command bar
-set cmdheight=1
+set cmdheight=2
 
 " Format the status line
 "set statusline=FILE:\ %f%m%r%h%w\ \ \ \ TYPE:\ %y\ %=%-20.(%l,%c%V%)\ %P
@@ -217,3 +217,4 @@ let g:lightline = {
 
 " Do not show vim info, because it is provided by the status line
 set noshowmode
+
