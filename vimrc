@@ -17,7 +17,7 @@ execute pathogen#infect()
 
 " With a map leader it's possible to do extra key combinations
 " Set the leader key
-let mapleader=" "
+let mapleader=","
 
 " Auto read when a file is changed outside
 set autoread
@@ -41,9 +41,6 @@ set backspace=indent,eol,start
 " --> User interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Set how many lines to the cursor when moving
-set so=2
-
 " Use command-line completion enhanced option
 set wildmenu
 
@@ -83,8 +80,14 @@ set foldcolumn=3
 "Add a coloured column to avoid going to far to the right
 set colorcolumn=79
 
+" Set how many lines to the cursor when moving
+set so=2
+
 " Show at least one line above/bellow the cursor
 set scrolloff=2
+
+" Highlight current line
+set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Fonts, Colors and Themes
@@ -145,23 +148,26 @@ set textwidth=79
 set wrap
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" --> Moving around and tabs
+" --> Moving around, buffers and tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" A way to move between windows
-map <C-J> :tabnext<cr>
-map <C-K> :tabprevious<cr>
+" Moving between buffers
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
 map <leader>to :tabonly<cr>
 map <leader>tm :tabmove<cr>
-map <leader><leader> :tabnext<cr>
+map <leader>tt :tabnext<cr>
+map <leader>tp :tabprevious<cr>
 
 " let 'tl' toggle between this and the las accessed tab
 let g:lasttab = 1
-nmap <leader>tl :exe "tabn ".g:lasttab<cr>
+map <leader><leader> :exe "tabn ".g:lasttab<cr>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Return to last edit position when opening files
@@ -190,11 +196,8 @@ set cmdheight=2
 " --> Editing
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" Use ^L to clear the highlighting of :set hlsearch
-map <C-L> :nohlsearch<CR>
-
-" s to reload vim config without having to restart editor
-nmap <leader>s :source ~/.vimrc<CR>
+" Clear the highlighting of search
+map <leader>ns :nohlsearch<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Misc commands
