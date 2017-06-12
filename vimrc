@@ -75,7 +75,7 @@ set magic
 set showmatch
 
 " Add extra margin to the left
-set foldcolumn=3
+"set foldcolumn=3
 
 "Add a coloured column to avoid going to far to the right
 set colorcolumn=79
@@ -87,7 +87,7 @@ set so=2
 set scrolloff=2
 
 " Highlight current line
-set cursorline
+"set cursorline
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Fonts, Colors and Themes
@@ -98,16 +98,25 @@ syntax on
 
 " Set a theme
 try
-    colorscheme landscape
+    "colorscheme landscape
+    colorscheme github 
 catch
 endtry
 
 " For use in a dark terminal
-set background=dark
+set background=light
 set t_Co=256
 
 " Set a font
-set guifont=Menlo\ Regular:h10
+set guifont=Hack\ Regular:h10
+
+" Make the self work in python to be a special word
+augroup python
+    autocmd!
+    autocmd FileType python
+            \   syn keyword pythonSelf self
+            \ | highlight def link pythonSelf Special
+augroup end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Files
@@ -146,6 +155,20 @@ set textwidth=79
 
 " Wrap lines
 set wrap
+
+" Enable folding
+"set foldmethod=indent
+"set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" save and load fold/unfold view automatically
+"augroup remember_folds
+"    autocmd!
+"    autocmd BufWinLeave *.* mkview
+"    autocmd BufWinEnter *.* loadview
+"augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " --> Moving around, buffers and tabs
